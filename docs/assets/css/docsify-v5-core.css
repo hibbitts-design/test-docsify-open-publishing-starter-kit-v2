@@ -1,10 +1,12 @@
 /* Fix for Coverpage title link colors with preview build of Docsify v5 theme */
+/*
 .cover h1 a {
   color: var(--cover-title-color);
 }
 .cover h1 a .hover {
   color: var(--link-color) !important;
 }
+*/
 
 /* Fix for Transparent iframe support for both light and dark modes with preview build of Docsify v5 theme */
 iframe,
