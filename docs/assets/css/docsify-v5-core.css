@@ -1,74 +1,3 @@
-.markdown-section .card-list {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-  margin-top: 2rem;
-}
-
-.markdown-section .card {
-  border: 1px solid var(--color-mono-3);
-  padding: 1.5rem;
-  background: var(--color-mono-1);
-  transition: box-shadow 0.2s ease;
-  display: flex;
-  flex-direction: column;
-}
-
-.markdown-section .card-rounded {
-  border: 1px solid var(--color-mono-3);
-  border-radius: 0.35em;
-  padding: 1.5rem;
-  background: var(--color-mono-1);
-  transition: box-shadow 0.2s ease;
-  display: flex;
-  flex-direction: column;
-}
-
-.markdown-section .card:hover,
-.markdown-section .card:hover {
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-.markdown-section .card h2, 
-.markdown-section .card-rounded h2 {
-  margin-top: 0;
-  margin-bottom: .1rem;
-  font-size: 1.3rem;
-}
-
-.markdown-section .card img,
-.markdown-section .card-rounded img {
-  margin: .1rem 0;
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  object-position: center;
-}
-
-.markdown-section .card p,
-.markdown-section .card-rounded p {
-  flex-grow: 1;
-  margin-bottom: .1rem;
-}
-
-/* Mobile breakpoint - single column layout */
-@media screen and (max-width: 768px) {
-  .markdown-section .card-list {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-  
-  .markdown-section .card,
-  .markdown-section .card-rounded {
-    padding: 1.25rem;
-  }
-  
-  .markdown-section .card img, 
-  .markdown-section .card-rounded img {
-    height: 180px;
-  }
-}
-
 /* Fix for Coverpage title link colors with preview build of Docsify v5 theme */
 /*
 .cover h1 a {
@@ -566,6 +495,95 @@ iframe[src] * {
   .markdown-section .image-25-border {
     width: 100%;
     height: auto;
+  }
+}
+
+/* CSS generated/assisted by Anthropic Claude AI */
+.markdown-section .card-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.markdown-section .card:not(.card-list .card),
+.markdown-section .card-rounded:not(.card-list .card-rounded) {
+  margin-top: 2rem;
+}
+
+.markdown-section .card,
+.markdown-section .card-rounded {
+  border: 1px solid var(--color-mono-3);
+  padding: 1.5rem;
+  background: var(--color-mono-1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* This ensures images respect border-radius */
+}
+
+.markdown-section .card-rounded {
+  border-radius: 0.35em;
+}
+
+.markdown-section .card h2,
+.markdown-section .card-rounded h2 {
+  margin: 0 0 .1rem 0;
+  padding-bottom: .5rem;
+  font-size: 1.3rem;
+}
+
+/* Adjust space above and below h2 that follows edge-to-edge images */
+.markdown-section .card p:has(img):first-child + h2,
+.markdown-section .card-rounded p:has(img):first-child + h2 {
+  margin-top: 1rem;
+  padding-bottom: .25rem;
+}
+
+/* All images have normal padding by default */
+.markdown-section .card p:has(img),
+.markdown-section .card-rounded p:has(img) {
+  margin: 0;
+}
+
+/* First images extend to card edges */
+.markdown-section .card p:has(img):first-child,
+.markdown-section .card-rounded p:has(img):first-child {
+  margin: -1.6rem -1.5rem -1rem -1.5rem;
+}
+
+.markdown-section .card img,
+.markdown-section .card-rounded img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+}
+
+.markdown-section .card p,
+.markdown-section .card-rounded p {
+  flex-grow: 1;
+  margin-bottom: .1rem;
+}
+
+/* Mobile */
+@media screen and (max-width: 768px) {
+  .markdown-section .card-list {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .markdown-section .card,
+  .markdown-section .card-rounded {
+    padding: 1.25rem;
+  }
+
+  .markdown-section .card img,
+  .markdown-section .card-rounded img {
+    height: 200px;
+  }
+
+  .markdown-section .card p:has(img):first-child,
+  .markdown-section .card-rounded p:has(img):first-child {
+    margin: -1.35rem -1.25rem -0.75rem -1.25rem;
   }
 }
 
